@@ -5,7 +5,7 @@
     <title></title>
 </head>
 <body>
-    <script type="text/javascript" src="dataContext.js"></script>
+    <script type="text/javascript" src="fnc.datacontext.js"></script>
     <script>
         // Note that samples are not functioning, just sample code
         // to get them working you will also need a reference to jquery
@@ -17,7 +17,7 @@
         var getPromise = dataContext.get(url);
 
         // so instead of passing a callback to $.ajax you can just pass in a url
-        // and get a promise back from datacontext
+        // and get a promise back from dataContext
         // when the promise is fulfilled it executes the callback function passed to promise.done()
         getPromise.done(function (data) {
             // whatever resource or data that is returned as part of the promise
