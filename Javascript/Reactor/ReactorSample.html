@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+    <script type="text/javascript" src="reactor.js"></script>
+    <script type="text/javascript">
+        var reactor = fncNS.reactor;
+
+        // first let's register an event
+        var eventId = 'userInitialized';
+        reactor.registerEvent(eventId);
+
+        // now let's add a listener and pass in a callback
+        var event = reactor.addEventListener(eventId, function(){
+           console.log('user init done');
+        });
+
+        // let's trigger the event -- this will invoke our callback function
+        // any sort of application logic can trigger the event
+        reactor.dispatchEvent(eventId);
+
+        // we can subscribe to events that have already happened and our callback will immediately be executed
+        // no need to ensure that we set up our listeners prior to the event actually being triggered
+        var event2 = reactor.addEventListener(eventId, function(){
+           console.log('user init already triggered, but you can subscribe to me anyways');
+        });
+
+        // Let's unbind event2
+        reactor.removeEventListener(eventId, event2);
+
+        // Let's trigger the event again and note that we don't see event2's callback executed
+        reactor.dispatchEvent(eventId);
+    </script>
+</body>
+</html>
