@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+    <script type="text/javascript" src="dataContext.js"></script>
+    <script>
+        // Note that samples are not functioning, just sample code
+        // to get them working you will also need a reference to jquery
+        // and an operational url
+        var dataContext =  fncNS.dataContext;
+
+        // Get example
+        var url = 'your url that supports http posts'
+        var getPromise = dataContext.get(url);
+
+        // so instead of passing a callback to $.ajax you can just pass in a url
+        // and get a promise back from datacontext
+        // when the promise is fulfilled it executes the callback function passed to promise.done()
+        getPromise.done(function (data) {
+            // whatever resource or data that is returned as part of the promise
+            // you can now take action on
+        });
+
+        // if the promise fails you can handle with your error callback
+        getPromise.fail(function(jqXHR, textStatus, errorThrown ){
+            // now show an error div or something
+
+        });
+
+        // Post example
+        var postBody = new Object();    // postbody can be any object that can be serialized to JSON
+        var postPromise = dataContext.post(url, postBody);
+
+        // now set up the promise callbacks
+        postPromise.done(function(data){
+           // do what you need to
+        });
+
+        postPromise.fail(function(jqXHR, textStatus, errorThrown ){
+            // now show an error div or something
+        });
+
+    </script>
+</body>
+</html>
