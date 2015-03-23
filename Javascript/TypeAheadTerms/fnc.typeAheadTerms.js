@@ -2,11 +2,25 @@ var fncNS = fncNS || {};
 
 fncNS.typeAhead = (function(){
 
+    var elem = '';
     var options = [];
+
+
+    function init(jqueryElement, terms){
+        // todo: add check
+        elem = jqueryElement;
+        setTerms(terms);
+        bindElementToTypeAhead();
+    }
+    function bindElementToTypeAhead(){
+        //$('#product_search').typeahead().data('typeahead').source = options;
+        $(elem).typeahead().data('typeahead').source = options;
+    }
 
     function isFunctionLegit(fn){
         return fn && typeof fn === 'function';
     }
+
     function setTerms(terms){
         if(isFunctionLegit((terms))){
             options = terms();
@@ -15,15 +29,24 @@ fncNS.typeAhead = (function(){
 
         // check if it is an array
         options = terms;
+    }
 
+    function repopulateAutoCompleteWithAllOptions(text) {
+        debugger;
+        var terms = options;
+        text = text.trim();
+        if (text != '') {
+            text = text + ' ';
+        }
+
+        for (var term in terms) {
+            options.push(text + terms[term]);
+        }
+        bindElementToTypeAhead();
     }
-    function getTypeAheadTerms(){
-        //options = ["Dan", "Sarah", "Trent", "Dwain"];
-        return options;
-    }
+
     return {
-       loadTerms : getTypeAheadTerms,
-        setTerms : setTerms
+        init: init
     }
 })();
 
