@@ -1,0 +1,33 @@
+<html>
+<head>
+    <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+
+<div style="margin: 50px 50px">
+    <label for="product_search">Product Search: </label>
+    <input id="product_search" type="text" data-provide="typeahead">
+</div>
+
+<script src="jquery-1.9.1.min.js"></script>
+<script src="bootstrap/js/bootstrap.js"></script>
+<script src="fnc.typeAheadTerms.js"></script>
+
+<script>
+    $(document).ready(function($) {
+        var x = fncNS.typeAhead;
+        var options = ["Dan", "Sarah", "Trent", "Dwain"];
+        debugger;
+        x.setTerms(options);
+        // Workaround for bug in mouse item selection
+        $.fn.typeahead.Constructor.prototype.blur = function() {
+            var that = this;
+            setTimeout(function () { that.hide() }, 250);
+        };
+
+        $('#product_search').typeahead().data('typeahead').source = x.loadTerms();
+    })
+</script>
+
+</body>
+</html>
