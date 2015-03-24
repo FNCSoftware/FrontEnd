@@ -16,9 +16,9 @@
 <script>
     $(document).ready(function($) {
         var elem = '#product_search';
-        var x = fncNS.typeAhead;
         var options = ["Dan", "Sarah", "Trent", "Dwain"];
-        x.init(elem, options);
+        fncNS.typeAhead.init(elem,options);
+        
         // Workaround for bug in mouse item selection
         $.fn.typeahead.Constructor.prototype.blur = function() {
             var that = this;
