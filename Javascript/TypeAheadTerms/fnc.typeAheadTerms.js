@@ -11,7 +11,22 @@ fncNS.typeAhead = (function(){
         elem = jqueryElement;
         setTerms(terms);
         bindElementToTypeAhead();
+        bindKeyPresses();
     }
+
+    function bindKeyPresses(){
+
+      $(elem).on('keypress',(function(e){
+
+        if(e.which === 32){
+            // user pressed space
+            var text = $(elem).val();
+            updateAutoCompleteWithExistingText(text);
+        }
+
+      }));
+    }
+
     function bindElementToTypeAhead(){
         //$('#product_search').typeahead().data('typeahead').source = options;
         $(elem).typeahead().data('typeahead').source = options;
@@ -28,20 +43,24 @@ fncNS.typeAhead = (function(){
         }
 
         // check if it is an array
-        options = terms;
+        if(terms.constructor === Array){
+          options = terms;
+        }
+
     }
 
-    function repopulateAutoCompleteWithAllOptions(text) {
-        debugger;
+    function updateAutoCompleteWithExistingText(text) {
         var terms = options;
-        text = text.trim();
+        var searchTerm = text.trim();
         if (text != '') {
             text = text + ' ';
         }
 
         for (var term in terms) {
+            debugger;
             options.push(text + terms[term]);
         }
+
         bindElementToTypeAhead();
     }
 
