@@ -1,7 +1,7 @@
 var fncNS = fncNS || {};
 
-fncNS.typeAhead = (function(){
-
+fncNS.typeAhead = (function($){
+    var $ = $;
     var elem = '';
     var options = [];
 
@@ -67,7 +67,7 @@ fncNS.typeAhead = (function(){
     return {
         init: init
     }
-})();
+})($);
 
 //$("#ordersSearchTextBox").on('keypress', (function (e) {
 //        if (e.which == 32) { // space
