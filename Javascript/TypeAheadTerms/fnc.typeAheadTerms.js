@@ -19,26 +19,11 @@ fncNS.typeAhead = (function ($) {
 
         $(jqSelector).on('keypress', (function (e) {
 
-
             if (e.which === 32) {
                 // user pressed space
                 var text = $(jqSelector).val();
                 updateAutoCompleteWithExistingText(text);
             }
-
-            //if (e.which === 8) {
-            //    debugger;
-            //    // user backspaced
-            //    var text = $(jqSelector).val();
-            //    if (text.trim() === '') {
-            //        debugger;
-            //        // revert back to original options
-            //        options = originalOptions;
-            //        bindElementToTypeAhead();
-            //
-            //    }
-            //}
-
         }));
     }
 
