@@ -4,9 +4,9 @@ For demo purposes, the list of orders is static, but in practice they are a resu
 This calendar implementation is using several 3rd party scripts -
 
 http://fullcalendar.io/		This is includes fullcalendar.js and fullcalendar.css. Used to display the calendar and calendar events
-	Which also has dependencies on -
-	http://momentjs.com/	moment.js. Used to format dates
-	gcal.js			Google Calendar functionality
+      Which also has dependencies on -
+	    http://momentjs.com/	moment.js. Used to format dates
+	    gcal.js			Google Calendar functionality
 
 http://qtip2.com/download 	This includes jquery.qtip.js and jquery.qtip.css. Used for the popups/tooltips seen when hovering over calendar events
 
