@@ -3,6 +3,7 @@ For demo purposes, the list of orders is static, but in practice they are a resu
 
 We actually filter our orders by the start and end date in the current calendar view when bringing down orders to show in calendar.
 For example, in our fullcalendar setup we perfom this instead of using the static list of orders:
+
 events: function (start, end, timezone, callback) {
     $element.fullCalendar('removeEvents');
 
@@ -16,7 +17,8 @@ events: function (start, end, timezone, callback) {
     };
 
     $scope.loadCalendarOrders(eventsCallback); // this performs our ajax call and it's done function calls the callback function
-},
+}
+
 The function above is called every time the calendar renders a new view (by clicking the next or prev buttons or Month, Week, or Day views)
 
 
