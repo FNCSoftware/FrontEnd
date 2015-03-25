@@ -13,6 +13,8 @@ http://qtip2.com/download 	This includes jquery.qtip.js and jquery.qtip.css. Use
 
 Bootstrap
 
+angularJS
+
 jQuery
 
 ----------------------------------------------------------------
