@@ -1,7 +1,7 @@
 function WindowShowModalDialog(Url, Opener, Settings) {
 	//console.log('using my WindowShowModalDialog!');
 	//console.log("Url: " + Url);
-	Url = CleanCmsUrl(Url, 'scripts/update_case.asp'); //assume building from script in scripts folder
+	Url = CleanCmsUrl(Url, 'scripts/someScript.ext'); //assume building from script in scripts folder
 	//console.log("Clean Url: " + Url);
 	
 	return window.showModalDialog(Url, Opener, Settings);
@@ -10,7 +10,7 @@ function WindowShowModalDialog(Url, Opener, Settings) {
 function WindowOpen(Url, Opener, Settings) {
 	//console.log('using my WindowOpen!');
 	//console.log("Url: " + Url);
-	Url = CleanCmsUrl(Url, 'scripts/update_case.asp'); //assume building from script in scripts folder
+	Url = CleanCmsUrl(Url, 'scripts/someScript.ext'); //assume building from script in scripts folder
 	//console.log("Clean Url: " + Url);
 	
 	win = window.open(Url, Opener, Settings);
